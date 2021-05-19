@@ -73,7 +73,7 @@ for ls, cfg in pairs({
   jsonls = {},
   julials = {on_attach=require'completion'.on_attach},
   r_language_server = {on_attach=require'completion'.on_attach},
-  pyls = {root_dir = lsp.util.root_pattern('.git', fn.getcwd()), on_attach=require'completion'.on_attach},
+  pylsp = {root_dir = lsp.util.root_pattern('.git', fn.getcwd()), on_attach=require'completion'.on_attach},
 }) do lsp[ls].setup(cfg) end
 lspfuzzy.setup {}
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
