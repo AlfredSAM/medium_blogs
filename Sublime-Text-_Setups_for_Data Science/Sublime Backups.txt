@@ -5,7 +5,7 @@ rm /usr/local/bin/subl
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 * In mac also need to allow for repeated input
-defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 
 * Preferences/Settings:
@@ -108,34 +108,40 @@ Preferences/Package Settings/Terminus/Key bindings
 }
 
 * Preferences/Package Settings/LSP/Settings:
+
 {
-    "clients": {
-        "pylsp": {
-            "selector": "source.python",
-            "command": [
-                "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
-            ],
-            "settings": {
-                "pylsp.plugins.pylint.executable": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylint",
-                "pylsp.plugins.pyflakes.enabled": false, // enabled by default, use pylint
-                "pylsp.plugins.pycodestyle.enabled": false, // enabled by default, use pylint
-                "pylsp.plugins.pylint.enabled": true,  // pylint is included in pyls
-                "pylsp.plugins.jedi_rename.enabled": true,  // included in pyls
-                // File formatter, invoke via LSP: Format file
-                "pylsp.plugins.autopep8.enabled": false,  // enabled by default, use black
-                "pylsp.plugins.black.enabled": true,  // from pyls-black
-                "pylsp.plugins.mypy_ls.enabled": false,  // from mypy-ls
-            },
-            "enabled": true
-        },
-        "rlang":{
-            "command": [
-                "/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
-                "--slave",
-                "-e",
-                "languageserver::run()"
-            ],
-            "enabled": true
-        }
-    }
+	"clients":
+	{
+		"pyls":
+		{
+			"command":
+			[
+				"/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
+			],
+			"enabled": true,
+			"selector": "source.python",
+			"settings":
+			{
+				"pylsp.plugins.autopep8.enabled": false,
+				"pylsp.plugins.black.enabled": true,
+				"pylsp.plugins.jedi_rename.enabled": true,
+				"pylsp.plugins.mypy_ls.enabled": true,
+				"pylsp.plugins.pycodestyle.enabled": false,
+				"pylsp.plugins.pyflakes.enabled": false,
+				"pylsp.plugins.flake8.enabled": true, 
+				"pylsp.plugins.flake8.executable": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/flake8"
+			}
+		},
+		"rlang":
+		{
+			"command":
+			[
+				"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
+				"--slave",
+				"-e",
+				"languageserver::run()"
+			],
+			"enabled": true
+		}
+	}
 }
