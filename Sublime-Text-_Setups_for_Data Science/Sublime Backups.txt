@@ -1,0 +1,136 @@
+Sublime Backups
+
+* In mac also need to rebuild the simlink:
+rm /usr/local/bin/subl
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+* In mac also need to allow for repeated input
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+
+
+* Preferences/Settings:
+
+{
+	"font_face": "FiraCode Nerd Font Mono",
+	"font_options":
+	[
+		"subpixel_antialias",
+		"gray_antialias"
+	],
+	"font_size": 18,
+	"rulers": [80],
+	"ignored_packages":
+	[
+		"Six",
+		"Vintage",
+		"Vintageous"
+	],
+	"neovintageous_build_version": 11100
+
+
+* Preference/Package Settings/Package Control:
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoPEP8",
+		"BracketHighlighter",
+		"GitSavvy",
+		"LSP",
+		"LSP-pyright",
+		"NeoVintageous",
+		"OrgExtended",
+		"Origami",
+		"Package Control",
+		"PowerShell",
+		"R-IDE",
+		"SendCode",
+		"Table Editor",
+		"Terminus"
+	]
+}
+
+* Preferences/Package Settings/Terminus/Settings:
+
+{
+	"256color": true,
+	"theme": "argonaut",
+	"unix_term": "xterm-256color"
+}
+
+
+Preferences/Package Settings/Terminus/Key bindings
+
+[
+{
+        "keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {
+            "cwd": "${file_path:${folder}}"
+        }
+    },
+    {
+        "keys": ["alt+`"], "command": "toggle_terminus_panel", "args": {
+            "cwd": "${file_path:${folder}}"
+        }
+    }
+]
+
+* Preferences/Package Settings/R-IDE:
+
+{
+	"r_binary": "/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R"
+}
+
+* Preferences/Package Settings/SendCode:
+
+{
+    "r" : {
+        "prog": "terminus",
+        // turn bracketed_paste_mode on if radian or readline 7.0 is in use
+        "bracketed_paste_mode": true
+    },
+
+    "rmd" : {
+        "prog": "terminus",
+        // turn bracketed_paste_mode on if radian or readline 7.0 is in use
+        "bracketed_paste_mode": true
+    },
+
+    "python" : {
+        "prog": "terminus",
+        "bracketed_paste_mode": true
+    },
+
+    "julia" : {
+        "prog": "terminal",
+        "bracketed_paste_mode": true
+    }
+}
+
+* Preferences/Package Settings/LSP/Settings:
+
+{
+	"clients":
+	{
+		"rlang":
+		{
+			"command": [
+				"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
+            	"--slave",
+        		"-e",
+        		"languageserver::run()"
+			],
+			"enabled": true,
+		}
+	}
+}
+
+* Preferences/Package Settings/LSP/Servers/LSP-Pyright:
+
+{
+	"settings": {
+		"python.pythonPath": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/python"
+	}
+}
