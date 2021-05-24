@@ -79,11 +79,6 @@ Preferences/Package Settings/Terminus/Key bindings
     }
 ]
 
-* Preferences/Package Settings/R-IDE:
-
-{
-	"r_binary": "/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R"
-}
 
 * Preferences/Package Settings/SendCode:
 
