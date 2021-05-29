@@ -67,7 +67,7 @@ defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
 Preferences/Package Settings/Terminus/Key bindings
 
 [
-{
+	{
         "keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {
             "cwd": "${file_path:${folder}}"
         }
@@ -76,8 +76,21 @@ Preferences/Package Settings/Terminus/Key bindings
         "keys": ["alt+`"], "command": "toggle_terminus_panel", "args": {
             "cwd": "${file_path:${folder}}"
         }
+    },
+    {
+        "keys": ["%", "%"], "command": "insert_snippet", "args": {"contents": " %>%"},  
+            "context": [
+                { "key": "selector", "operator": "equal", "operand": "source.r" }
+            ]  
+    },
+    {
+        "keys": ["<", "<"], "command": "insert_snippet", "args": {"contents": " <- "},  
+            "context": [
+                { "key": "selector", "operator": "equal", "operand": "source.r" }
+            ]  
     }
 ]
+
 
 
 * Preferences/Package Settings/SendCode:
@@ -101,7 +114,7 @@ Preferences/Package Settings/Terminus/Key bindings
     },
 
     "julia" : {
-        "prog": "terminal",
+        "prog": "terminus",
         "bracketed_paste_mode": true
     }
 }
