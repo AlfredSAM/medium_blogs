@@ -120,17 +120,16 @@ Preferences/Package Settings/Terminus/Key bindings
 }
 
 * Preferences/Package Settings/LSP/Settings:
-
 {
 	"clients":
 	{
 		"pylsp":
 		{
+			"enabled": false,
 			"command":
 			[
 				"/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
 			],
-			"enabled": true,
 			"selector": "source.python",
 			"settings":
 			{
@@ -146,6 +145,7 @@ Preferences/Package Settings/Terminus/Key bindings
 		},
 		"rlang":
 		{
+			"enabled": false, 
 			"command":
 			[
 				"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
@@ -153,9 +153,49 @@ Preferences/Package Settings/Terminus/Key bindings
 				"-e",
 				"languageserver::run()"
 			],
-			"selector": "source.r | text.html.markdown.rmarkdown",
-			"enabled": true
+			"selector": "source.r | text.html.markdown.rmarkdown"
 		}
 	}
 }
 
+---
+
+Example settings for some project
+
+{
+	"folders":
+	[
+		{
+			"path": "/Users/alfredfaisam/Desktop/LearningPython"
+		},
+		{
+			"path": "/Users/alfredfaisam/Desktop/LearningR"
+		}
+	],
+
+	"settings": {
+        "LSP": {
+            "pylsp": {
+                "enabled": true,
+                "command":
+				[
+					"/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
+				],
+                "settings": {
+					"pylsp.plugins.flake8.executable": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/flake8"
+                },
+            },
+            "rlang":{
+            	"enabled": true,
+				"command":
+				[
+					"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
+					"--slave",
+					"-e",
+					"languageserver::run()"
+				],
+				"selector": "source.r | text.html.markdown.rmarkdown",
+			}
+        },
+    },
+}
