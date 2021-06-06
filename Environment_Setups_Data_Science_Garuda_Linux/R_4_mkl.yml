@@ -1,0 +1,8 @@
+name: R_4.0_mkl
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - conda-forge::r-base=4.1.0
+  - conda-forge::libblas=3.9.0=9_mkl
