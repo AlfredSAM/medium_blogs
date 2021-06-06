@@ -166,3 +166,23 @@
   one can find the program can run as normal.
 
 ## Setup Conda Environments for Python and R
+
+## Installation of Julia
+
+```
+mkdir ~/opt
+cd ~/opt
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.1-linux-x86_64.tar.gz
+tar -xvf julia-1.6.1-linux-x86_64.tar.gz
+```
+Run `julia`:
+```
+~/opt/julia-1.6.1/bin/julia
+```
+Furthermore, one can add the following to `$PATH`
+```
+echo 'export PATH="$HOME/opt/julia-1.6.1/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
+```
+so that only inputting `julia` can run the program.
+
+
