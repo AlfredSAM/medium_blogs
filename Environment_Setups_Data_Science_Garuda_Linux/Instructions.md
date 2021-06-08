@@ -14,6 +14,71 @@
   softwares. It is advised to NOT doing this step at this moment and reboot the
   system at first.
 
+## Installation of Brave Browser
+
+* Use `pacman` to install [Brave Browser](https://brave.com/) which focuses on
+  privacy:
+  ```
+  sudo pacman -S brave
+  ```
+* After installation, just set it as default browser by revising `~/.profile`:
+  ```
+  export BROWSER=brave
+  ```
+
+## Remarks for Chinese Language
+
+* Just inspired by [Garuda Linux on a 2013 15 MBP](https://medium.com/codex/garuda-linux-on-a-2013-15-mbp-df47f162b961)
+  I just install the following to avoid weird symbols in Chinese:
+  ```
+  sudo pacman -S wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-cjk
+  ```
+* On the other hand, Chinese input method is also needed to setup, since I just
+  chose `American English` as the default language when installing Garuda.
+  * First install `ibus` related softwares by
+    ```
+    sudo pacman -S ibus
+    sudo pacman -S ibus-rime
+    sudo pacman -S rime-wubi
+    ```
+  * After the installation, then just put the following at the end of
+    `~/.profile`:
+    ```
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+    ibus-daemon -d -x
+    ```
+    and then reboot.
+  * Now one can find `ibus preferences` in `settings`, and then tries adding
+    `rime` input method from `Chinese`.
+  * On the other hand, just add the following `default.custom.yaml` file to
+    `~/.config/ibus/rime/`:
+    ```
+    # default.custom.yaml
+    # save it to: 
+    #   ~/.config/ibus/rime  (linux)
+    #   ~/Library/Rime       (macos)
+    #   %APPDATA%\Rime       (windows)
+
+    patch:
+      schema_list:
+        - schema: luna_pinyin          # 朙月拼音
+        - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
+        - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式
+        - schema: terra_pinyin         # 地球拼音 dì qiú pīn yīn
+        - schema: cangjie5             # 倉頡五代
+        - schema: cangjie5_express     # 倉頡 快打模式
+        - schema: wubi86               # 五笔86
+        - schema: wubi_pinyin          # 五笔拼音混合輸入
+    ```
+  * Now it is ready to use it! One will find `EN` is shown in the upper right
+    position, and now open any brave browser and in the address press
+    `win + space` to change to `rime`. Now click the icon of `rime` and then click
+    `deploy` and wait for it to complete without errors.
+  * Now in the address of brave try pressing __ctrl+`__ several options of input
+    methods are available. 
+
 ## Homebrew setups
 
 * Since Garuda Linux is the Arch based system which will provide rolling updates
