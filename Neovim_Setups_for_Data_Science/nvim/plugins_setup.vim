@@ -54,7 +54,11 @@ au BufNewFile,BufRead *.R set filetype=r
 autocmd FileType r inoremap <buffer> %% <Esc>:normal! a %>%<CR>a
 autocmd FileType rnoweb inoremap <buffer> %% <Esc>:normal! a %>%<CR>a
 autocmd FileType rmd inoremap <buffer> %% <Esc>:normal! a %>%<CR>a
-autocmd FileType r inoremap <buffer> << <Esc>:normal! a <-<CR>a
-autocmd FileType rnoweb inoremap <buffer> << <Esc>:normal! a <-<CR>a
-autocmd FileType rmd inoremap <buffer> << <Esc>:normal! a <-<CR>a
+autocmd FileType r inoremap <buffer> << <Esc>:normal! a <- <CR>a
+autocmd FileType rnoweb inoremap <buffer> << <Esc>:normal! a <- <CR>a
+autocmd FileType rmd inoremap <buffer> << <Esc>:normal! a <- <CR>a
 
+" tmp setup for Nvim-R not working well in fish shell
+if &shell =~# 'fish$'
+    set shell=/bin/zsh
+endif
