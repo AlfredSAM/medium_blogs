@@ -1,7 +1,7 @@
 # Instructions for the setups of Garuda Linux in Data science
 
 
-## Uprade the System
+## Uprade the System after the Installation
 
 * After installation, just reboot and go into Garuda for the first time.
 * The assistant will ask to refresh the `mirrorlists` for the downloads of
@@ -13,6 +13,17 @@
 * After the above upgrade process, the system also suggest installing the
   softwares. It is advised to NOT doing this step at this moment and reboot the
   system at first.
+* Since Garuda Linux is the Arch based system which will provide rolling updates
+  regularly. It is suggested to run the following before the installation of
+  other softwares.
+  ```
+  sudo pacman -Syu
+  ```
+  Sometime, the errors about `timeshift` not working may show up to indicate
+  errors. The simple workaround is to input
+  ```
+  sudo SKIP_AUTOSNAP=1 pacman -Syu
+  ```
 
 ## Installation of Brave Browser
 
@@ -25,6 +36,24 @@
   ```
   export BROWSER=brave
   ```
+
+## Installation of LibreOffice
+
+* Just also use `pacman` for installation:
+  ```
+  sudo pacman -S libreoffice
+  ```
+  and select the stable version of [libreoffice-still](https://archlinux.org/packages/?name=libreoffice-still).
+* On the other hand, `tex` is always helpful for math writing, so the following
+  plugin is also installed:
+  ```
+  sudo pacman -S libreoffice-extension-texmaths
+  ```
+* In terms of the pdf reader, `zathura` is a good choice and please check: https://wiki.archlinux.org/title/Zathura
+  ```
+  sudo pacman -S zathura
+  ```
+  and other plugins are available to enhance its functions: https://wiki.archlinux.org/title/Zathura
 
 ## Remarks for Chinese Language
 
@@ -81,17 +110,6 @@
 
 ## Homebrew setups
 
-* Since Garuda Linux is the Arch based system which will provide rolling updates
-  regularly. It is suggested to run the following before the installation of
-  other softwares.
-  ```
-  sudo pacman -Syu
-  ```
-  Sometime, the errors about `timeshift` not working may show up to indicate
-  errors. The simple workaround is to input
-  ```
-  sudo SKIP_AUTOSNAP=1 pacman -Syu
-  ```
 * Install `Homebrew` to manage part of the softwares and apps to replicate the
   similar experience as MacOS. The tricky point is that the instructions about
   `Homebrew` are mainly based on `bash/zsh`, but Garuda Linux use `fish` by
@@ -150,6 +168,12 @@
   brew install gcc
   ```
   Up until this point, users can just use `Homebrew` as they do in MacOS.
+* To be honest, currently `Homebrew` seems to target the Mac users in most of
+  the time and provides limited supports for Linux users. For example, some
+  errors about compilation exist for some softwares, such as [Julia](https://formulae.brew.sh/formula/julia).
+  Now, I just use `Homebrew` to install [`Neovim`](https://formulae.brew.sh/formula/neovim)
+  and [`Transmission`](https://formulae.brew.sh/cask/transmission), and they
+  seem to work.
 
 ## Installation of Neovim
 
@@ -232,22 +256,67 @@
 
 ## Setup Conda Environments for Python and R
 
+* It is natual to construct the separate environment for Python users: 
+  https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+  On the other hand, `(base)` environment is usually kept clean to make sure the
+  problems only affect other new built environments. Therefore, removing other
+  environments is always the direct option to solve the problem and do it again.
+* The relevant issue about computation efficiency using Python needs to provide
+  optimized BLAS frameworks for `numpy`, and `mkl` is the ideal choice.
+  Therefore, just activate the new Python environment and then use the 
+  following command to install `numpy` with `mkl` as the
+  dependency:
+  ```
+  conda install -c conda-forge numpy libblas=3.9.0=9_mkl
+  ```
+  Other packages relying on `numpy` should be also optimized in terms of the
+  matrix computation.
+* In order for the LSP of Python to work properly, the following plugins are
+  also recommended:
+  ```
+  pip install 'python-lsp-server[all]' python-lsp-black mypy-ls pyls-isort
+  ```
+* On the other hand, separate environment for R is also available. For example,
+  one can construct the new environment using the following `R_4_mkl.yml`:
+  ```
+  name: R_4.0_mkl
+  channels:
+    - conda-forge
+    - defaults
+  dependencies:
+    - python=3.8
+    - conda-forge::r-base=4.1.0
+    - conda-forge::libblas=3.9.0=9_mkl
+  ```
+  It will construct the environment using R 4.1 named **R_4.0_mkl**.
+* One can also find that this yml just requires the dependency about matrix
+  computation in R to also employ `mkl`. This is also another benefit to use R
+  in conda environment. Sometimes, to link to `mkl` for `BLAS/LAPACK` is so
+  tricky and not that flexible. However, with the help of `conda` this job can
+  be made so easy.
+* Also, after the setup one also needs to activate the environment and then
+  install `install.packages("languageserver")` for LSP of R.
+
 ## Installation of Julia
 
-```
-mkdir ~/opt
-cd ~/opt
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.1-linux-x86_64.tar.gz
-tar -xvf julia-1.6.1-linux-x86_64.tar.gz
-```
-Run `julia`:
-```
-~/opt/julia-1.6.1/bin/julia
-```
-Furthermore, one can add the following to `$PATH`
-```
-echo 'export PATH="$HOME/opt/julia-1.6.1/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
-```
-so that only inputting `julia` can run the program.
-
+* In MacOS, I just use `Homebrew` to install Julia by `brew install --cask julia`.
+* However, the trial to install Julia using `Homebrew` in Garuda Linux fails
+  and some errors exist for compilation and cmake files. Therefore, just conduct
+  the installation by hand:
+  ```
+  mkdir ~/opt
+  cd ~/opt
+  wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.1-linux-x86_64.tar.gz
+  tar -xvf julia-1.6.1-linux-x86_64.tar.gz
+  ```
+  Run `julia`:
+  ```
+  ~/opt/julia-1.6.1/bin/julia
+  ```
+  Furthermore, one can add the following to `$PATH`
+  ```
+  echo 'export PATH="$HOME/opt/julia-1.6.1/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
+  ```
+  so that only inputting `julia` can run the program.
+* Julia has its own `env` setups for different projects, and please check https://towardsdatascience.com/how-to-setup-project-environments-in-julia-ec8ae73afe9c
 
