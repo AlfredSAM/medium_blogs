@@ -105,8 +105,7 @@
     position, and now open any brave browser and in the address press
     `win + space` to change to `rime`. Now click the icon of `rime` and then click
     `deploy` and wait for it to complete without errors.
-  * Now in the address of brave try pressing __ctrl+`__ several options of input
-    methods are available. 
+  * One can check the website about the usage instructions: https://rime.im/download/
 
 ## Homebrew setups
 
@@ -202,6 +201,23 @@
   files for `treesit` will be downloaded and compiled and the information is
   whone at the bottom of the `nvim` window. Just wait for it to complete, and
   now `nvim` is ready to use.
+
+## Installation of Sublime Text 4
+
+* Just follow the instructions in the homepage about the installation for the arch based system: https://www.sublimetext.com/docs/linux_repositories.html
+* Install the  GPG key:
+  ```
+  curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+  ```
+* Select the channel to use and the most common one is stable-x86-64:
+  ```
+  echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+  ```
+* Update pacman and install Sublime Text
+  ```
+  sudo pacman -Syu sublime-text
+  ``` 
+* The recommended plugins and settings are still on the way, and please check my next blog post.
 
 ## Miniconda Installation
 
