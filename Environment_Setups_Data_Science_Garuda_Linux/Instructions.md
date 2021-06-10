@@ -24,6 +24,14 @@
   ```
   sudo SKIP_AUTOSNAP=1 pacman -Syu
   ```
+* Currently, `Add/Remove Software` no longer launches due to the change of 
+  `pacman 6.0`. The fastest way to figure it out is to reinstall `libalpm` library:
+  ```
+  sudo pacman -Syu libalpm12 
+  ```  
+  Please reboot and check it out: https://forum.garudalinux.org/t/problem-with-updates/5288.
+  However, the GUI for add/remove softwares is not important since the general 
+  Linux users should not care using terminal.
 
 ## Installation of Brave Browser
 
@@ -172,7 +180,8 @@
   errors about compilation exist for some softwares, such as [Julia](https://formulae.brew.sh/formula/julia).
   Now, I just use `Homebrew` to install [`Neovim`](https://formulae.brew.sh/formula/neovim)
   and [`Transmission`](https://formulae.brew.sh/cask/transmission), and they
-  seem to work.
+  seem to work. One can also check https://cli-ck.io/transmission-cli-user-guide/ for the usage of 
+  [`Transmission`](https://formulae.brew.sh/cask/transmission).
 
 ## Installation of Neovim
 
