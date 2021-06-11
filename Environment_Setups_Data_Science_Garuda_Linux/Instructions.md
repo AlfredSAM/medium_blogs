@@ -44,7 +44,8 @@
   ```
   export BROWSER=brave
   ```
-* Please be sure to install `brave-bin` instead of `brave` since some hidden errors may occur. For example, I find the blocking functions not work for `brave` but normal for `brave-bin`.
+* Please be sure to install `brave-bin` instead of `brave` since some hidden errors may occur. For example, I find the
+  blocking functions not work for `brave` but normal for `brave-bin`. Please also check the discussion: https://forum.garudalinux.org/t/brave-crashing-every-few-minutes/1975. 
 
 ## Installation of LibreOffice
 
