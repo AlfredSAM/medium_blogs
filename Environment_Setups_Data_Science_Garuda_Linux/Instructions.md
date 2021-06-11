@@ -229,6 +229,8 @@
   sudo pacman -Syu sublime-text
   ``` 
 * The recommended plugins and settings are still on the way, and please check my next blog post.
+  On the other hand, the `font_face` in Garuda Linux can be set to "FantasqueSansMono Nerd Font Mono",
+  which can allow for ligature in codes.
 * Currently I find the bugs also raised in: https://www.reddit.com/r/kde/comments/makgyn/kde_global_menu_with_sublime/
   and it seems that several researches are still needed for these bugs. However, the general usage is still
   fine. 
