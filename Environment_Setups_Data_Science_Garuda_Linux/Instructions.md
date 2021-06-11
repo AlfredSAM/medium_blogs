@@ -38,12 +38,13 @@
 * Use `pacman` to install [Brave Browser](https://brave.com/) which focuses on
   privacy:
   ```
-  sudo pacman -S brave
+  sudo pacman -S brave-bin
   ```
 * After installation, just set it as default browser by revising `~/.profile`:
   ```
   export BROWSER=brave
   ```
+* Please be sure to install `brave-bin` instead of `brave` since some hidden errors may occur. For example, I find the blocking functions not work for `brave` but normal for `brave-bin`.
 
 ## Installation of LibreOffice
 
