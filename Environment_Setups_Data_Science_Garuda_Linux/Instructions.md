@@ -1,7 +1,7 @@
 # Instructions for the setups of Garuda Linux in Data science
 
 
-## Uprade the System after the Installation
+## Upgrade the System after the Installation
 
 * After installation, just reboot and go into Garuda for the first time.
 * The assistant will ask to refresh the `mirrorlists` for the downloads of
