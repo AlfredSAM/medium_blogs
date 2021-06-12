@@ -44,8 +44,33 @@
   ```
   export BROWSER=brave
   ```
-* Please be sure to install `brave-bin` instead of `brave` since some hidden errors may occur. For example, I find the
-  blocking functions not work for `brave` but normal for `brave-bin`. Please also check the discussion: https://forum.garudalinux.org/t/brave-crashing-every-few-minutes/1975. 
+* Please be sure to install `brave-bin` instead of `brave` since some hidden 
+  errors may occur. For example, I find the blocking functions not work for
+  `brave` but normal for `brave-bin`. Please also check the discussion:
+  https://forum.garudalinux.org/t/brave-crashing-every-few-minutes/1975. 
+
+## Installation of [kitty](https://sw.kovidgoyal.net/kitty/)
+
+* In Garuda Linux, it seems to encourage to use `konsole` for shell commands.
+  However, when coding in `konsole` I just discover some latency issues when
+  using `neovim`. On the other hand, `alacritty` is a fast, cross-platform,
+  OpenGL terminal emulator and installed in Garuda by default. It seems to a
+  better choice than `konsole`, but it seems not support ligature currently
+  which I really prefer: https://github.com/alacritty/alacritty/issues/50.
+  Therefore, [kitty](https://sw.kovidgoyal.net/kitty/) is just a good choice.
+* Kitty is also fast and GPU-based terminal emulator with tmux-like features
+  embedded, and it can support ligature well if the appropriate fonts are set:
+  ```
+  sudo pacman -S kitty
+  ```
+* Please also refer to my setup file `kitty.conf` which should be put in
+  `~/.config/kitty`. I just choose `Firacode Nerd Font Mono` for ligature.
+* In MacOS, I just use kitty for a while but the vertically misaligned issues
+  for the `nerd` fonts seem not to be figured out for a while, so I just switch
+  back to iterm2: https://github.com/kovidgoyal/kitty/issues/2022. Of coz,
+  without using the `nerd` fonts only ligature and maybe some unicode icons
+  cannot work. Therefore, users who do not bother the beauty of the codes can
+  still use kitty under MacOS.
 
 ## Installation of LibreOffice
 
@@ -129,7 +154,7 @@
 * Generally speaking, the config file of `fish` is in
   `/home/.config/fish/config.fish`. One can use [micro](https://micro-editor.github.io/),
   the default editor in Garuda Linux to open such config file. It is noticed
-  that `source ~/.profile` is in the file, whicn means that this file
+  that `source ~/.profile` is in the file, which means that this file
   automatically load the setups from `~/.profile`.
 * From the home page of [Homebrew](https://brew.sh/), the suggested installation
   command is
@@ -210,7 +235,7 @@
   and then wait for the installation to finish.
 * Just use `:q!` to quit and then reopen `nvim`, one can find that the latest
   files for `treesit` will be downloaded and compiled and the information is
-  whone at the bottom of the `nvim` window. Just wait for it to complete, and
+  shown at the bottom of the `nvim` window. Just wait for it to complete, and
   now `nvim` is ready to use.
 
 ## Installation of Sublime Text 4
