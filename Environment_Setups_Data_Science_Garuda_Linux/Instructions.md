@@ -64,13 +64,7 @@
   sudo pacman -S kitty
   ```
 * Please also refer to my setup file `kitty.conf` which should be put in
-  `~/.config/kitty`. I just choose `Firacode Nerd Font Mono` for ligature.
-* In MacOS, I just use kitty for a while but the vertically misaligned issues
-  for the `nerd` fonts seem not to be figured out for a while, so I just switch
-  back to iterm2: https://github.com/kovidgoyal/kitty/issues/2022. Of coz,
-  without using the `nerd` fonts only ligature and maybe some unicode icons
-  cannot work. Therefore, users who do not bother the beauty of the codes can
-  still use kitty under MacOS.
+  `~/.config/kitty`. I just choose `FiraCode Nerd Font Mono` for ligature.
 
 ## Installation of LibreOffice
 
