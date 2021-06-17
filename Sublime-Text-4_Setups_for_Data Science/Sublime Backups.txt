@@ -29,7 +29,6 @@ defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
 
 
 * Preference/Package Settings/Package Control:
-	* Need to rule out R-IDE, which will make LSP not work
 
 {
 	"bootstrapped": true,
@@ -41,6 +40,11 @@ defaults write com.sublimetext.4 ApplePressAndHoldEnabled -bool false
 		"BracketHighlighter",
 		"GitSavvy",
 		"LSP",
+		"LSP-R",
+		"LSP-pylsp",
+		"LSP-julia",
+		"LSP-json",
+		"R-IDE",
 		"NeoVintageous",
 		"OrgExtended",
 		"Origami",
@@ -120,43 +124,27 @@ Preferences/Package Settings/Terminus/Key bindings
 }
 
 * Preferences/Package Settings/LSP/Settings:
+* Remove all settings for LSP
 {
-	"clients":
-	{
-		"pylsp":
-		{
-			"enabled": false,
-			"command":
-			[
-				"/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
-			],
-			"selector": "source.python",
-			"settings":
-			{
-				"pylsp.plugins.autopep8.enabled": false,
-				"pylsp.plugins.black.enabled": true,
-				"pylsp.plugins.jedi_rename.enabled": true,
-				"pylsp.plugins.mypy_ls.enabled": true,
-				"pylsp.plugins.pycodestyle.enabled": false,
-				"pylsp.plugins.pyflakes.enabled": false,
-				"pylsp.plugins.flake8.enabled": true, 
-				"pylsp.plugins.flake8.executable": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/flake8"
-			}
-		},
-		"rlang":
-		{
-			"enabled": false, 
-			"command":
-			[
-				"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
-				"--slave",
-				"-e",
-				"languageserver::run()"
-			],
-			"selector": "source.r | text.html.markdown.rmarkdown"
-		}
-	}
 }
+
+* However, can give global settings for each LSP-xxx, for example,
+
+// Settings in here override those in "LSP-pylsp/LSP-pylsp.sublime-settings"
+{
+    "command": [
+        "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp",
+    ],
+	"pylsp.plugins.mypy-ls.enabled": true,
+    "pylsp.plugins.flake8.enabled": true,
+    "pylsp.configurationSources": ["flake8"],
+    "pylsp.plugins.pyls_black.enabled": true,
+}
+
+
+* Now, bugs found for LSP-R since no "LSP-R" shown under LSP server. It is
+reported: https://github.com/sublimelsp/LSP-R/issues/2 
+
 
 ---
 
