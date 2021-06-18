@@ -149,32 +149,29 @@ reported: https://github.com/sublimelsp/LSP-R/issues/2
 ---
 
 Example settings for some project
-
 {
 	"folders":
 	[
 		{
-			"path": "/Users/alfredfaisam/Desktop/LearningPython"
+			"path": "/Users/alfredfaisam/Desktop/LearningPython",
 		},
 		{
-			"path": "/Users/alfredfaisam/Desktop/LearningR"
-		}
+			"path": "/Users/alfredfaisam/Desktop/LearningR",
+		},
+		{
+			"path": "/Users/alfredfaisam/Desktop/git_projects/medium_blogs"
+		},
 	],
 
 	"settings": {
         "LSP": {
-            "pylsp": {
-                "enabled": true,
+            "LSP-pylsp": {
                 "command":
 				[
 					"/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/pylsp"
-				],
-                "settings": {
-					"pylsp.plugins.flake8.executable": "/Users/alfredfaisam/opt/miniconda3/envs/APM/bin/flake8"
-                },
+				]
             },
-            "rlang":{
-            	"enabled": true,
+            "LSP-R":{
 				"command":
 				[
 					"/Users/alfredfaisam/opt/miniconda3/envs/R_4.0_mkl/bin/R",
@@ -183,7 +180,7 @@ Example settings for some project
 					"languageserver::run()"
 				],
 				"selector": "source.r | text.html.markdown.rmarkdown",
-			}
+			},
         },
     },
 }
