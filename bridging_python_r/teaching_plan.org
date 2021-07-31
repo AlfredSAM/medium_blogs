@@ -1,0 +1,54 @@
+#+title: Teaching Plans of Bridging Courses
+#+author: Alfred F. SAM
+
+
+* [ ] Introduction to Computing Environments for Data Science 
+  - [ ] Anaconda (Miniconda is preferred)
+    - [ ] Environments management
+    - [ ] Packages management
+  - [ ] Instructions for Win and Mac
+  - [ ] IDE
+    - Jupyter Lab
+    - Rstudio
+    - Sublime Text (only recommend it for advanced users)
+
+
+* [ ] Python Basics
+
+** [ ] Python Programming Basics
+   - [ ] Functions
+   - [ ] Python Essentials
+   - [ ] OOP I: Introduction to Object Oriented Programming
+   - [ ] OOP II: Building Classes
+
+** [ ] Python for Data Science
+   - [ ] Numpy
+   - [ ] Pandas
+   - [ ] Matplotlib/Seaborn
+  
+** References
+  - [[https://python-programming.quantecon.org/intro.html][Python Programming for Economics and Finance]]
+  - McKinney, W. (2017). Python for data analysis: Data wrangling with Pandas, NumPy, and IPython. (2nd edition) " O'Reilly Media, Inc.".
+    - [[https://github.com/wesm/pydata-book][Github notes]]
+  - Navlani, A., Fandango, A., & Idris, I. (2021). Python Data Analysis: Perform data collection, data processing, wrangling, visualization, and model building using Python. Packt Publishing Ltd.
+    - [[https://github.com/PacktPublishing/Python-Data-Analysis-Third-Edition][Github notes]]
+
+
+* [ ] R Basics
+
+** [ ] R Programming Basics
+   - [ ] Data Structures in R
+   - [ ] Pipes  
+   - [ ] Iterative Programming
+   - [ ] Writing Functions
+   
+** [ ] R for Data Science
+   - [ ] Tidyverse for data wrangling
+   - [ ] ggplot2 for visualization
+
+** References
+   - [[https://m-clark.github.io/data-processing-and-visualization/][Practical Data Science: Doing more with your data]]
+   - [[https://moderndive.com/index.html][Statistical Inference via Data Science: A ModernDive into R and the Tidyverse]]
+   - [[https://r4ds.had.co.nz/][R for Data Science]]
+
+  
