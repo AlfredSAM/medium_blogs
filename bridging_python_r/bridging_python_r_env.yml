@@ -1,0 +1,8 @@
+name: bridging_python_r
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - conda-forge::r-essentials=4.1.0
+  - conda-forge::libblas=3.9.0=9_mkl
